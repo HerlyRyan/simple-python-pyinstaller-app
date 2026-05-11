@@ -11,7 +11,7 @@ node {
     }
     stage('Test') {
         try {
-            sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
+            sh 'pytest --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
         } finally {
             junit 'test-reports/results.xml'
         }
