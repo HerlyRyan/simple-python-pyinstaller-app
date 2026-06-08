@@ -18,7 +18,7 @@ node {
     }
     stage('Deploy') {
         try {
-            sh 'pyinstaller --onefile sources/add2vals.py'
+            sh 'python3 -m PyInstaller --onefile sources/add2vals.py'
         } finally {
             archiveArtifacts 'dist/add2vals'
         }
