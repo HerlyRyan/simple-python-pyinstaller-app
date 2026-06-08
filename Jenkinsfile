@@ -23,4 +23,7 @@ node {
             archiveArtifacts 'dist/add2vals'
         }
     }
+    stage('Wait 1 Minute') {
+        sleep(time: 1, unit: 'MINUTES')
+    }
 }
