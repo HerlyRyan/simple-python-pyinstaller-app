@@ -16,4 +16,11 @@ node {
             junit 'test-reports/results.xml'
         }
     }
+    stage('Deploy') {
+        try {
+            sh 'pyinstaller --onefile sources/add2vals.py'
+        } finally {
+            archiveArtifacts 'dist/add2vals'
+        }
+    }
 }
