@@ -25,11 +25,14 @@ node {
     stage('Deploy') {
         try {
             sh 'python3 -m PyInstaller --onefile sources/add2vals.py'
-        } finally {
+
             archiveArtifacts 'dist/add2vals'
+
+            echo 'Menunggu 1 menit sebelum deployment selesai...'
+            sleep(time: 1, unit: 'MINUTES')
+
+        } finally {
+            echo 'Deploy selesai'
         }
-    }
-    stage('Wait 1 Minute') {
-        sleep(time: 1, unit: 'MINUTES')
     }
 }
